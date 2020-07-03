@@ -37,4 +37,5 @@ python3 -m pip install Django
 ## Run server
 ```
 python3 manage.py runserver
+Note: Requires creds.py which is private
 ```
