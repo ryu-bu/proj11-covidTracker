@@ -84,12 +84,12 @@ class App extends React.Component {
   }
  
   render() {
-    console.log(axios.get("http://localhost:8000/api/trackers/")); //test django
+    console.log(axios.get("http://localhost:8000/api/trackers/")); //test django API
     return (
       <Sidebar
         sidebar={
           <div className="SidebarPad">
-            <h3>your neighborhood</h3>
+            <h3>find your neighborhood</h3>
           </div>
         }
         open={this.state.sidebarOpen}
@@ -97,7 +97,7 @@ class App extends React.Component {
         onSetOpen={this.onSetSidebarOpen}
       >
         <header style={{textAlign: 'center'}}>
-          <h1>Boston COVID19 Tracker</h1>
+          <h1>BOSTON COVID-19 RESOURCE MAPS</h1>
         </header>
 
        <div style={{textAlign: 'center'}}>
