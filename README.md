@@ -1,6 +1,6 @@
 # proj11-covidTracker
 
-1. clone and cd to this repo then create virtual environment 
+1. clone and cd to this repo then create virtual environment with "python3 -m venv env"
 2. do your_virtualenv_name/bin/activate to activate the virtual environment
 3. do your_virtualenv_name/bin/pip install -r requirements.txt to install dependencies 
 
