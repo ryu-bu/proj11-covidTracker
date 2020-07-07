@@ -1,16 +1,17 @@
 # proj11-covidTracker
 
 1. clone and cd to this repo then create virtual environment with "python3 -m venv env"
-2. do your_virtualenv_name/bin/activate to activate the virtual environment
-3. do your_virtualenv_name/bin/pip install -r requirements.txt to install dependencies 
+2. activate the virtual environment with "source env/bin/activate"
+3. install dependencies with "env/bin/pip install -r requirements.txt"
 
 To run Django server
 1. cd to backend
-2. do python manage.py runserver
+2. run "python3 manage.py runserver"
 
 To run React server
 1. cd to frontend
-2. do yarn start
+2. run "yarn start"
+
 this process might take up to several minutes
 
 
