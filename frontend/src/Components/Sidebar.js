@@ -16,6 +16,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
+import { fade } from '@material-ui/core/styles/colorManipulator';
 
 const drawerWidth = 240;
 
@@ -24,7 +25,6 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
   },
   drawer: {
-    opacity: 0.5,
     [theme.breakpoints.up('sm')]: {
       width: drawerWidth,
       flexShrink: 0,
@@ -45,7 +45,7 @@ const useStyles = makeStyles((theme) => ({
   // necessary for content to be below app bar
   toolbar: theme.mixins.toolbar,
   drawerPaper: {
-    backgroundColor: 'turquoise',
+    backgroundColor: fade('#40E0D0', 0.8),
     width: drawerWidth,
   },
   content: {
@@ -66,7 +66,15 @@ function ResponsiveDrawer(props) {
 
   const drawer = (
     <div>
-
+      <div className={classes.toolbar} />
+      <Divider />
+      <List>
+        {['Town/Zipcode', 'Resources'].map((text, index) => (
+          <ListItem button key={text}>
+            <ListItemText primary={text} />
+          </ListItem>
+        ))}
+      </List>
     </div>
   );
 
