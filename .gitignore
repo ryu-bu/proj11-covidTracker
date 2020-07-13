@@ -1,3 +1,6 @@
 .DS_Store
 .env
 pro11
+__pycache__/
+*.py[cod]
+*$py.class
