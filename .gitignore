@@ -4,4 +4,3 @@ pro11
 __pycache__/
 *.py[cod]
 *$py.class
-./backend/__pycache__/
