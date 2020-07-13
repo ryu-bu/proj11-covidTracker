@@ -3,8 +3,5 @@
 pro11
 __pycache__/
 *.py[cod]
-<<<<<<< HEAD
 *$py.class
-=======
-*$py.class
->>>>>>> dac39777a69a32970cd985473590f6ebc1c70de0
+
