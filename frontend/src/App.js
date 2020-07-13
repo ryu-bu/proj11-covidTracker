@@ -1,5 +1,4 @@
 import React from 'react';
-import './App.css';
 import Map from './Components/Map';
 import Sidebar from './Components/Sidebar';
 
