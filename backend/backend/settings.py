@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'tracker', #adding custom file
+    'covid', #adding town informaiton
     'corsheaders', #api
     'rest_framework', #api
 ]

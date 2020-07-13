@@ -16,13 +16,16 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include                
 from rest_framework import routers                    
-from tracker import views        
+# from tracker import views    
+from covid import views    
 
 
 router = routers.DefaultRouter()
-router.register(r'trackers', views.TrackerView, 'tracker')
+# router.register(r'trackers', views.TrackerView, 'tracker')
+router.register(r'towns', views.TownView, 'town')
+router.register(r'councilors', views.CouncilorView, 'councilor')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', include(router.urls)) 
+    path('api/covid/', include(router.urls)) 
 ]
