@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Divider from '@material-ui/core/Divider';
 import Drawer from '@material-ui/core/Drawer';
@@ -7,11 +8,15 @@ import Hidden from '@material-ui/core/Hidden';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
+import Box from '@material-ui/core/Box';
+import Button from '@material-ui/core/Button';
+import Typography from '@material-ui/core/Typography';
+
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import { fade } from '@material-ui/core/styles/colorManipulator';
 
-const sideWidth = 400;
-const offset = 150;
+const topHeight = 150;
+const tabs = ['Quick Stats', 'Community Resources', 'Legislation', 'Contacts'];
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -19,14 +24,14 @@ const useStyles = makeStyles((theme) => ({
   },
   drawer: {
     [theme.breakpoints.up('sm')]: {
-      width: sideWidth,
+      width: topHeight,
       flexShrink: 0,
     },
   },
   appBar: {
     [theme.breakpoints.up('sm')]: {
-      width: `calc(100% - ${sideWidth}px)`,
-      marginLeft: sideWidth,
+      width: `calc(100% - ${topHeight}px)`,
+      marginLeft: topHeight,
     },
   },
   menuButton: {
@@ -37,10 +42,9 @@ const useStyles = makeStyles((theme) => ({
   },
   // necessary for content to be below app bar
   toolbar: theme.mixins.toolbar,
-  drawerPaper: {
+  paper: {
     backgroundColor: fade('#0054A6', 0.8),
-    width: sideWidth,
-    marginTop: offset,
+    height: topHeight,
   },
   content: {
     flexGrow: 1,
@@ -48,7 +52,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function ResponsiveDrawer(props) {
+function TopDrawer(props) {
   const { window } = props;
   const classes = useStyles();
   const theme = useTheme();
@@ -58,16 +62,71 @@ function ResponsiveDrawer(props) {
     setMobileOpen(!mobileOpen);
   };
 
+  const box = {
+    display: 'flex',
+    justifyContent: 'flex-end',
+    height: topHeight/2 - 1,
+    alignItems: 'center'
+  };
+
+  const rowBox = {
+    padding: 5,
+    marginRight: 20
+  }
+
+  const tabBox = {
+    flexDirection: 'row',
+    display: 'flex',
+    width: 600,
+    padding: 5,
+    marginRight: 20
+  }
+
+  const title = {
+    fontSize: '45px',
+    color: '#FFCC99',
+    fontFamily: ['Arial Bold']
+  }
+
+  const button = {
+    height: 50,
+    justifyContent: 'center',
+    alignItems: "center"
+  }
+
+  const buttonText = {
+    fontSize: '15px',
+    color: '#FFCC99',
+    fontFamily: ['Arial']
+  }
+
   const drawer = (
     <div>
-      <Divider />
-      <List>
-        {['Town/Zipcode', 'Resources'].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
-      </List>
+      <Box display="flex" style={box} >
+        <Box flexGrow={1} padding={4}>
+          <Typography variant="h2" align="left" style={title}>
+            BOSTON COVID-19 RESOURCE MAP
+          </Typography>
+        </Box>
+        <Box marginRight={3}>
+          <Button style={button}>
+                <Typography align="center" style={buttonText}>
+                  All Profiles
+                </Typography>
+          </Button>
+        </Box>
+      </Box>
+      <Box style={box}>
+        <Box display="flex" justifyContent="flex-end" style={tabBox}>
+          {tabs.map((text) => (
+            <Button style={button}>
+              <Typography align="center" style={buttonText}>
+                {text}
+              </Typography>
+            </Button>
+          ))}
+        </Box>
+      </Box>
     </div>
   );
 
@@ -82,11 +141,11 @@ function ResponsiveDrawer(props) {
           <Drawer
             container={container}
             variant={"temporary"}
-            anchor={theme.direction === 'rtl' ? 'right' : 'left'}
+            anchor={"top"}
             open={mobileOpen}
             onClose={handleDrawerToggle}
             classes={{
-              paper: classes.drawerPaper,
+              paper: classes.paper,
             }}
             ModalProps={{
               keepMounted: true, // Better open performance on mobile.
@@ -98,10 +157,11 @@ function ResponsiveDrawer(props) {
         <Hidden xsDown implementation="css">
           <Drawer
             classes={{
-              paper: classes.drawerPaper,
+              paper: classes.paper,
             }}
             variant="permanent"
             open
+            anchor={"top"}
           >
             {drawer}
           </Drawer>
@@ -111,7 +171,7 @@ function ResponsiveDrawer(props) {
   );
 }
 
-ResponsiveDrawer.propTypes = {
+TopDrawer.propTypes = {
   /**
    * Injected by the documentation to work in an iframe.
    * You won't need it on your project.
@@ -119,4 +179,4 @@ ResponsiveDrawer.propTypes = {
   window: PropTypes.func,
 };
 
-export default ResponsiveDrawer;
+export default TopDrawer;

@@ -11,10 +11,20 @@ const center = {
   lng: -71.05977
 };
 
-const mapStyles = [
+const mapStyles1 = [
   // Neighborhood names
   {
     "featureType": "administrative",
+    "stylers": [
+      {"color": "#000000"},
+      {"saturation": 0},
+      {"lightness": 60},
+      {"visibility": "simplified"},
+      {"weight": 0.5}
+    ]
+  },
+  {
+    "featureType": "administrative.locality",
     "stylers": [
       {"color": "#000000"},
       {"saturation": 0},
@@ -24,7 +34,7 @@ const mapStyles = [
     ]
   },
 
-  // Points of interest, turned off
+  // Points of interest, medical labels and medical and park fill 
   {
       "elementType": "labels",
       "stylers": [
@@ -82,6 +92,15 @@ const mapStyles = [
     ]
   },
   {
+    "featureType": "poi.school",
+    "elementType": "geometry.fill",
+    "stylers": [
+        {"visibility": "on"},
+        {"color": "#a95521"},
+        {"lightness": 35}
+    ]
+  },
+  {
     "featureType": "poi.sports_complex",
     "stylers": [
         {"visibility": "off"},
@@ -128,15 +147,7 @@ const mapStyles = [
       {"visibility": "off"},
     ]
 },
-  {
-      "featureType": "road",
-      "stylers": [
-          {"color": "#813033"},
-          {"lightness": 43},
-          {"visibility": "off"},
-      ]
-  },
-  {
+ {
       "featureType": "water",
       "elementType": "geometry.fill",
       "stylers": [
@@ -146,53 +157,34 @@ const mapStyles = [
           {"lightness": 43}
       ]
   },
+
+
+  {
+      "featureType": "road",
+      "stylers": [
+          {"color": "#f19f53"},
+          {"lightness": 0},
+          {"visibility": "on"},
+      ]
+  },
+ 
   {
       "featureType": "road.local",
       "elementType": "geometry.fill",
       "stylers": [
           {"color": "#f19f53"},
           {"weight": 1.3},
-          {"visibility": "off"},
-          {"lightness": 16}
+          {"visibility": "on"},
+          {"lightness": 16},
+          {"weight": 1.3}
       ]
   },
   {
-      "featureType": "transit.station",
-  },
-  {
-      "featureType": "transit.line",
-      "stylers": [
-          {"color": "#813033"},
-          {"lightness": 22}
-      ]
-  },
-  {
-      "featureType": "transit",
-      "stylers": [
-          {"lightness": 38},
-          {"visibility": "off"}
-      ]
-  },
-  {
-      "featureType": "road.local",
-      "elementType": "geometry.stroke",
-      "stylers": [
-          {"color": "#f19f53"},
-          {"lightness": -10}
-      ]
-  },
-  {
-    "featureType": "administrative.land_parcel",
-    "elementType": "labels",
+    "featureType": "road.local",
+    "elementType": "geometry.stroke",
     "stylers": [
-      {"visibility": "on"}
-    ]
-  },
-  {
-    "featureType": "road",
-    "elementType": "labels.icon",
-    "stylers": [
-      {"visibility": "off"}
+        {"color": "#f19f53"},
+        {"lightness": -10}
     ]
   },
   {
@@ -211,10 +203,257 @@ const mapStyles = [
   {
     "featureType": "road.local",
     "stylers": [
-      {"visibility": "off"}
+      {"visibility": "on"}
+    ]
+  },
+
+
+  {
+      "featureType": "transit.station",
+  },
+  {
+      "featureType": "transit.line",
+      "stylers": [
+          {"color": "#813033"},
+          {"lightness": 22}
+      ]
+  },
+  {
+      "featureType": "transit",
+      "stylers": [
+          {"lightness": 38},
+          {"visibility": "off"}
+      ]
+  },
+  {
+    "featureType": "administrative.land_parcel",
+    "elementType": "labels",
+    "stylers": [
+      {"visibility": "on"}
     ]
   },
 ];
+const mapStyles = [
+  {
+    "stylers": [
+      {
+        "visibility": "simplified"
+      }
+    ]
+  },
+  {
+    "elementType": "geometry.stroke",
+    "stylers": [
+      {
+        "color": "#ff8800"
+      }
+    ]
+  },
+  {
+    "elementType": "labels.text",
+    "stylers": [
+      {
+        "color": "#003777"
+      }
+    ]
+  },
+  {
+    "elementType": "labels.text.stroke",
+    "stylers": [
+      {
+        "color": "#ff8800"
+      }
+    ]
+  },
+  {
+    "featureType": "administrative.neighborhood",
+    "elementType": "geometry.fill",
+    "stylers": [
+      {
+        "color": "#45736c"
+      }
+    ]
+  },
+  {
+    "featureType": "landscape",
+    "elementType": "geometry.fill",
+    "stylers": [
+      {
+        "color": "#3399ff"
+      }
+    ]
+  },
+  {
+    "featureType": "poi.attraction",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "poi.attraction",
+    "elementType": "geometry.fill",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "poi.business",
+    "elementType": "labels",
+    "stylers": [
+      {
+        "visibility": "off",
+        "color": "#ff7300"
+      }
+    ]
+  },
+  {
+    "featureType": "poi.government",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "poi.medical",
+    "elementType": "geometry.fill",
+    "stylers": [
+      {
+        "color": "#ffd500"
+      }
+    ]
+  },
+  {
+    "featureType": "poi.park",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "poi.place_of_worship",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "poi.school",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "poi.sports_complex",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "road",
+    "stylers": [
+      {
+        "color": "#80b0ff"
+      },
+      {
+        "visibility": "simplified"
+      },
+      {
+        "weight": 0.5
+      }
+    ]
+  },
+  {
+    "featureType": "road",
+    "elementType": "geometry.fill",
+    "stylers": [
+      {
+        "visibility": "simplified"
+      }
+    ]
+  },
+  {
+    "featureType": "road",
+    "elementType": "labels",
+    "stylers": [
+      {
+        "visibility": "simplified"
+      }
+    ]
+  },
+  {
+    "featureType": "road",
+    "elementType": "labels.text",
+    "stylers": [
+      {
+        "color": "#005fcc"
+      },
+      {
+        "visibility": "simplified"
+      }
+    ]
+  },
+  {
+    "featureType": "road",
+    "elementType": "labels.text.fill",
+    "stylers": [
+      {
+        "visibility": "simplified"
+      }
+    ]
+  },
+  {
+    "featureType": "road",
+    "elementType": "labels.text.stroke",
+    "stylers": [
+      {
+        "visibility": "simplified"
+      }
+    ]
+  },
+  {
+    "featureType": "transit.line",
+    "elementType": "geometry.fill",
+    "stylers": [
+      {
+        "color": "#ffcc99"
+      }
+    ]
+  },
+  {
+    "featureType": "transit.station",
+    "elementType": "geometry.fill",
+    "stylers": [
+      {
+        "color": "#bde0ff"
+      }
+    ]
+  },
+  {
+    "featureType": "water",
+    "elementType": "geometry.fill",
+    "stylers": [
+      {
+        "color": "#d1f0ff"
+      }
+    ]
+  }
+];
+
+
+
+
+
 
 function Map() {
   return (
@@ -224,12 +463,14 @@ function Map() {
       <GoogleMap
         mapContainerStyle={containerStyle}
         center={center}
-        zoom={15}
+        zoom={12}
         clickableIcons={false}
         mapTypeId={"roadmap"}
         extraMapTypes={[]}
         options={{
           styles: mapStyles,
+          mapTypeControl: false,
+          streetViewControl: false,
         }}
       >
         { /* Child components, such as markers, info windows, etc. */ 
