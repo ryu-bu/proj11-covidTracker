@@ -13,6 +13,7 @@ import { fade } from '@material-ui/core/styles/colorManipulator';
 import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import SelectInput from '@material-ui/core/Select/SelectInput';
 
 
 const sideWidth = 400;
@@ -71,23 +72,42 @@ function ResponsiveDrawer(props) {
   const classes = useStyles();
   const theme = useTheme();
   const [index, setOpen] = React.useState(0);
-  var nextIndex = 0;
+  //const [change, setChange] = React.useState(true);
   
   const changeOpen = (i) => {
-    if(index == 0) {
-      setOpen(i);
+    // if(index !== 0) {
+    //   setChange(false);
+    // }
+    if(index === i) {
+      setOpen(0);
     }
     else {
-      setOpen(0).then(() => {
-        setOpen(i);
-      });
+      setOpen(i)
     }
+    // if(!change) {
+    //   sleep(1000).then(() => {
+    //     console.log('2')
+    //     setChange(true);
+    //   })
+    // }
   };
 
-  const closing = () => {
-    console.log('fuckl')
-    setOpen(nextIndex);
-  }
+  // const sleep = (milliseconds) => {
+  //   return new Promise(resolve => setTimeout(resolve, milliseconds))
+  // }
+  
+
+  // const delay = (i) => {
+  //   //if(Date.now() % 100 == 0) {
+  //     console.log(change);
+  //   //}
+  //   return Date.now() - change >= 1000;
+  // }
+
+  // const closing = () => {
+  //   console.log('fuckl')
+  //   setOpen(nextIndex);
+  // }
 
   const box = {
     display: 'flex',
@@ -254,15 +274,17 @@ function ResponsiveDrawer(props) {
           </Drawer>
         </Hidden>
       </nav>
+      {tabs.map((text, i) => (
       <nav className={classes.drawer} aria-label="mailbox folders">
-        {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
+        {/* The implementation can be swapped with js to avoid SEO duplication of links. */} 
         <Hidden smUp implementation="css">
           <Drawer
             container={container}
             variant={"persistent"}
             anchor={theme.direction === 'rtl' ? 'right' : 'left'}
-            open={index != 0}
-            onClose={() => setOpen(0)}
+            open={index === i+1
+               //&& change
+              }
             classes={{
               paper: classes.drawerpaper,
             }}
@@ -279,13 +301,15 @@ function ResponsiveDrawer(props) {
               paper: classes.drawerpaper,
             }}
             variant="persistent"
-            open={index != 0}
-            onClose={() => closing()}
+            open={index === i+1
+               //&& change
+              }
           >
             <Content />
           </Drawer>
         </Hidden>
       </nav>
+      ))}
     </div>
   );
 }
