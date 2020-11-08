@@ -4,7 +4,7 @@ from .models import Town, Councilor
 # Register your models here.
 
 class TownAdmin(admin.ModelAdmin):
-    list_display = ('name', 'zip_code', 'positive_cases', 'tested', 'updated_date', 'councilor')
+    list_display = ('name', 'zip_code', 'positive_cases', 'tested')
 
 admin.site.register(Town, TownAdmin)
 
